@@ -1,10 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Connecting to John's Telegram Account and getting the Bot ready
-
-# In[249]:
-
+# # Connecting to my Telegram Account and getting the Bot ready
 
 import configparser
 import json
@@ -40,9 +37,6 @@ bot=telegram.Bot(token=TOKEN)
 
 # ### Getting the client (No need to run this code more than once, if it gives errors just change the string in telegram client for something else
 
-# In[ ]:
-
-
 client = TelegramClient("Your client name here", api_id, api_hash)
 await asyncio.sleep(2)
 await client.start()
@@ -60,9 +54,6 @@ if not client.is_user_authorized():
 
 
 # ### Getting the message from the user account
-
-# In[247]:
-
 
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 import apscheduler.schedulers.blocking
@@ -92,16 +83,11 @@ async def getting_text():
 sched.add_job(getting_text, 'interval', seconds=5)
 sched.start()
 
-
-# In[248]:
-
-
+#to manually stop the code
 sched.shutdown()
 
 
 # # Code for sending the messages using the Telegram Bot 
-
-# In[260]:
 
 
 async def sending_message():
@@ -130,17 +116,11 @@ async def sending_message():
     
 sched.add_job(sending_message, 'interval', seconds=5)
 sched.start()
-    
-    
 
 
-# In[261]:
-
-
+#to manually stop the code
 sched.shutdown()
 
-
-# In[ ]:
 
 
 
